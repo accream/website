@@ -1,0 +1,661 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* Prevents unwanted horizontal scrollbar when zooming */
+  font-family: 'Montserrat', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* ----------------------------------
+   1. Announcement Bar
+---------------------------------- */
+.announcement-bar {
+  background-color: #ebe2d8;
+  color: #2b2b2b;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: clamp(8px, 1.2vw, 11px);
+  letter-spacing: 2px;
+  font-weight: 500;
+  text-transform: uppercase;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* ----------------------------------
+   2. Main Header
+---------------------------------- */
+.main-header {
+  background-color: #050505;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  width: 100%;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Logo Styling */
+.logo-box {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 6px 14px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  position: relative;
+  text-align: center;
+}
+
+.brand-title {
+  font-family: 'Bodoni Moda', serif;
+  font-size: clamp(14px, 1.8vw, 18px);
+  letter-spacing: 4px;
+  font-weight: 600;
+  display: block;
+  color: #ffffff;
+}
+
+.brand-sub {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(12px, 1.5vw, 16px);
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #e5cfb8;
+}
+
+/* Navigation Menu */
+.nav-menu {
+  display: flex;
+  gap: clamp(10px, 2vw, 28px);
+  align-items: center;
+}
+
+.nav-menu a {
+  color: #d1d1d1;
+  text-decoration: none;
+  font-size: clamp(9px, 1vw, 11px);
+  letter-spacing: 2px;
+  font-weight: 400;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-menu a:hover {
+  color: #ffffff;
+}
+
+/* Right Header Icons */
+.header-icons {
+  display: flex;
+  gap: clamp(10px, 1.5vw, 18px);
+  align-items: center;
+}
+
+.header-icons a {
+  color: #cccccc;
+  font-size: clamp(11px, 1.2vw, 14px);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.header-icons a:hover {
+  color: #ffffff;
+}
+
+/* ----------------------------------
+   3. Hero Section (Zoom-Proof Aspect Ratio)
+---------------------------------- */
+.hero-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Maintains natural image proportions */
+  max-height: 85vh; /* Prevents container from over-expanding on tall monitors */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+
+/* Background Image */
+.hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Keeps whole picture visible without cropping top or bottom */
+  filter: brightness(0.85);
+}
+
+/* Center Translucent Box */
+.hero-center-box {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(12, 12, 12, 0.75);
+  backdrop-filter: blur(3px);
+  padding: clamp(15px, 3.5vw, 45px) clamp(20px, 4.5vw, 70px);
+  text-align: center;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.script-subtitle {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(20px, 3.2vw, 32px);
+  color: #dedede;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.main-heading {
+  font-family: 'Bodoni Moda', serif;
+  font-size: clamp(18px, 3.8vw, 34px);
+  letter-spacing: clamp(3px, 0.8vw, 7px);
+  font-weight: 400;
+  color: #ffffff;
+  margin: 8px 0 18px 0;
+  text-transform: uppercase;
+}
+
+.btn-shop {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+  padding: 6px 20px;
+  font-size: clamp(8px, 0.9vw, 11px);
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-shop:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.section-wrapper-dark {
+  background-color: #000000;
+  padding: clamp(20px, 4vw, 50px) clamp(15px, 5vw, 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Centered White Banner Box containing products */
+.white-banner-box {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  width: 100%;
+  max-width: 1200px;
+  padding: clamp(25px, 4vw, 45px) clamp(20px, 3.5vw, 40px);
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.section-tag {
+  font-size: clamp(10px, 1.2vw, 12px);
+  letter-spacing: 4px;
+  color: #222222;
+  margin-bottom: clamp(20px, 3vw, 35px);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* 4-Column Responsive Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(10px, 2vw, 20px);
+  margin-bottom: clamp(20px, 3vw, 35px);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-card .img-wrapper {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: #f2f2f2;
+  margin-bottom: 10px;
+  overflow: hidden;
+  border: 1px solid #e2e2e2;
+}
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.03);
+}
+
+.product-title {
+  font-family: 'Bodoni Moda', serif;
+  font-size: clamp(12px, 1.3vw, 15px);
+  font-weight: 400;
+  margin-bottom: 3px;
+  color: #1a1a1a;
+  letter-spacing: 1px;
+}
+
+.product-price {
+  font-size: clamp(8px, 0.8vw, 10px);
+  color: #666666;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Centered Dark Button */
+.center-btn-wrapper {
+  margin-top: 5px;
+}
+
+.btn-view-all {
+  display: inline-block;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 8px 22px;
+  font-size: clamp(8px, 0.9vw, 10px);
+  letter-spacing: 2.5px;
+  text-decoration: none;
+  font-weight: 400;
+  transition: background-color 0.3s ease;
+}
+
+.btn-view-all:hover {
+  background-color: #333333;
+}
+
+.beige-banner-box {
+  background-color: #f5efe8;
+  color: #1a1a1a;
+  width: 100%;
+  max-width: 1200px;
+  padding: clamp(25px, 4vw, 45px) clamp(20px, 3.5vw, 40px);
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Text */
+.section3-header {
+  margin-bottom: clamp(20px, 3vw, 35px);
+}
+
+.sec3-title {
+  font-family: 'Bodoni Moda', serif;
+  font-size: clamp(16px, 2vw, 22px);
+  letter-spacing: 5px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #1a1a1a;
+}
+
+.sec3-subtext {
+  font-size: clamp(8px, 0.85vw, 10px);
+  color: #666666;
+  letter-spacing: 1px;
+}
+
+/* 3-Column Category Grid */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(15px, 2.5vw, 30px);
+  margin-bottom: clamp(30px, 4vw, 50px);
+}
+
+.category-card {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Outer Square Box */
+.card-inner-border {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #d4c5b9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 12px;
+  background-color: #ece4db;
+}
+
+/* Dark Card Accent */
+.dark-card .card-inner-border {
+  background-color: #111111;
+  border: 1px solid #000000;
+}
+
+.card-title-container {
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.bold-text {
+  font-family: 'Bodoni Moda', serif;
+  font-size: clamp(22px, 3.5vw, 42px);
+  letter-spacing: 4px;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.bold-text.light-text {
+  color: #ffffff;
+}
+
+.script-overlay {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(18px, 2.8vw, 34px);
+  color: #1a1a1a;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.category-label {
+  font-size: clamp(8px, 0.9vw, 10px);
+  color: #444444;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+/* Newsletter Block */
+.newsletter-block {
+  margin-top: 20px;
+  border-top: 1px solid #e0d5cb;
+  padding-top: clamp(20px, 3vw, 35px);
+}
+
+.newsletter-sub {
+  font-size: clamp(8px, 0.85vw, 10px);
+  color: #666666;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+/* Email Form */
+.subscribe-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.subscribe-form input {
+  padding: 6px 12px;
+  font-size: clamp(9px, 0.9vw, 11px);
+  border: 1px solid #999999;
+  border-right: none;
+  outline: none;
+  width: 70%;
+  background-color: transparent;
+  color: #1a1a1a;
+}
+
+.subscribe-form button {
+  padding: 6px 14px;
+  font-size: clamp(8px, 0.9vw, 10px);
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #1a1a1a;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+  background-color: #333333;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive Grid Breakpoints */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+ 
+.final-banner-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 320px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.banner-bg-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-bg-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Dark tint overlay for readable text */
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.banner-center-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  padding: 20px;
+  max-width: 500px;
+}
+
+.banner-title {
+  font-family: 'Bodoni Moda', serif;
+  font-size: clamp(18px, 2.5vw, 26px);
+  letter-spacing: 5px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.banner-subtext {
+  font-size: clamp(8px, 0.9vw, 11px);
+  letter-spacing: 1px;
+  color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.btn-banner-shop {
+  display: inline-block;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 6px 20px;
+  font-size: clamp(8px, 0.9vw, 10px);
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.btn-banner-shop:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.client-box {
+  padding-bottom: 0 !important;
+}
+
+.clients-title {
+  font-family: 'Bodoni Moda', serif;
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 400;
+  letter-spacing: 3px;
+  margin-bottom: clamp(20px, 3vw, 35px);
+  color: #1a1a1a;
+}
+
+.client-grid {
+  margin-bottom: clamp(25px, 4vw, 40px);
+}
+
+/* Dark Kind Words Strip */
+.kind-words-bar {
+  background-color: #0d0d0d;
+  color: #ffffff;
+  width: calc(100% + clamp(40px, 7vw, 80px));
+  margin-left: calc(-1 * clamp(20px, 3.5vw, 40px));
+  padding: 12px 0;
+  font-size: clamp(9px, 1.1vw, 11px);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Bottom Site Footer Bar */
+.bottom-site-footer {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  text-align: center;
+  padding: 16px 10px;
+  font-size: clamp(11px, 1.4vw, 14px);
+  letter-spacing: 5px;
+  font-weight: 500;
+  width: 100%;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Prevents sticky/fixed headers from covering section tops */
+}
